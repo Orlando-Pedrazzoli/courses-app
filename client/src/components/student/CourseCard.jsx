@@ -1,14 +1,15 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { assets } from '../../assets/assets';
 import { AppContext } from '../../context/AppContext';
-import { Link } from 'react-router-dom';
 
 const CourseCard = ({ course }) => {
   const { currency, calculateRating } = useContext(AppContext);
+
   return (
     <Link
-      to={'/course/' + course._id}
       onClick={() => scrollTo(0, 0)}
+      to={'/course/' + course._id}
       className='border border-gray-500/30 pb-6 overflow-hidden rounded-lg'
     >
       <img className='w-full' src={course.courseThumbnail} alt='' />
@@ -31,7 +32,7 @@ const CourseCard = ({ course }) => {
               />
             ))}
           </div>
-          <p className='text-gray-500'>{course.courseRatings.length}</p>
+          <p className='text-gray-500'>({course.courseRatings.length})</p>
         </div>
         <p className='text-base font-semibold text-gray-800'>
           {currency}
